@@ -1,3 +1,5 @@
+import 'package:first_project/screen/main_screen.dart';
+import 'package:first_project/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,4 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
