@@ -12,7 +12,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('메인 화면')),
-      body: const Center(
+      body: Center(
         // Center 위젯을 사용하여 화면 중앙에 텍스트를 배치
         child: Column(
           // Column 위젯을 사용하여 세로로 위젯을 배치
@@ -38,7 +38,16 @@ class _MainScreenState extends State<MainScreen> {
                 // Expanded 위젯을 사용하여 가로 공간을 꽉 채우기
                 // flex 속성을 사용하여 공간 비율을 지정
               ],
-            )
+            ),
+            Container(
+              // Container 위젯을 사용하여 내부 공간을 구성
+              // 위젯은 사이즈를 지정할 수 없기 때문에 Container 위젯을 사용하여 사이즈를 지정
+              width: 300,
+              height: 100,
+              alignment: Alignment.center,
+              child: Text('컨테이너 안에 텍스트'),
+              color: Colors.amberAccent,
+            ),
           ],
         ),
       ),
