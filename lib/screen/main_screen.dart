@@ -55,9 +55,15 @@ class _MainScreenState extends State<MainScreen> {
             const SizedBox(
               // SizedBox 위젯을 사용하여 사이즈를 지정
               // 특정 공간이 필요할 때 주로 사용
-              width: 100,
-              height: 100,
-              child: Text("SizedBox 위젯을 사용하여 사이즈를 지정"),
+              width: 300,
+              height: 300,
+              child: Text(
+                "SizedBox 위젯을 사용하여 사이즈를 지정",
+                style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
+              ),
             )
           ],
         ),
