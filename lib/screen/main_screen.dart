@@ -22,6 +22,14 @@ class _MainScreenState extends State<MainScreen> {
             Text('반갑습니다', style: TextStyle(fontSize: 30)),
             Text('여기는 메인화면입니다'),
             Text('다 덤벼주세요'),
+            Row(
+              // Row 위젯을 사용하여 가로로 위젯을 배치
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text('누구부터'),
+                Text('혼내줄까?'),
+              ],
+            )
           ],
         ),
       ),
