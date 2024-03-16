@@ -19,9 +19,23 @@ class _MainScreenState extends State<MainScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('반갑습니다', style: TextStyle(fontSize: 30)),
-            const Text('여기는 메인화면입니다'),
-            const Text('다 덤벼주세요'),
+            Container(
+              height: 70,
+              width: 200,
+              margin: const EdgeInsets.all(30),
+              child: ElevatedButton(
+                // ElevatedButton 위젯을 사용하여 버튼 생성
+                onPressed: () {
+                  print('눌렀다!');
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amberAccent,
+                  elevation: 10, // 그림자 높이
+                ),
+                child: const Text('눌러보세요'),
+              ),
+            ),
             const Row(
               // Row 위젯을 사용하여 가로로 위젯을 배치
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
