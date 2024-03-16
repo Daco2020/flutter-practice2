@@ -8,95 +8,21 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  List listHello = ["득현", "덕순", "효빈"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('메인 화면')),
-      body: Center(
-        // Center 위젯을 사용하여 화면 중앙에 텍스트를 배치
-        child: Column(
-          // Column 위젯을 사용하여 세로로 위젯을 배치
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 70,
-              width: 200,
-              margin: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                // ElevatedButton 위젯을 사용하여 버튼 생성
-                onPressed: () {
-                  print('눌렀다!');
-                },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.amberAccent,
-                  elevation: 10, // 그림자 높이
-                ),
-                child: const Text('눌러보세요'),
-              ),
-            ),
-            const Row(
-              // Row 위젯을 사용하여 가로로 위젯을 배치
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text('누구부터'),
-                Text('혼내줄까?'),
-              ],
-            ),
-            const Row(
-              children: [
-                Expanded(flex: 2, child: Text("변")),
-                Expanded(flex: 1, child: Text("덕")),
-                Expanded(flex: 1, child: Text("순")),
-                // Expanded 위젯을 사용하여 가로 공간을 꽉 채우기
-                // flex 속성을 사용하여 공간 비율을 지정
-              ],
-            ),
-            Container(
-                // Container 위젯을 사용하여 내부 공간을 구성
-                // 위젯은 사이즈를 지정할 수 없기 때문에 Container 위젯을 사용하여 사이즈를 지정
-                width: 300,
-                height: 100,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.only(left: 20),
-                alignment: Alignment.center,
-                // color: Colors.amberAccent,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.amberAccent),
-                child: const Text('컨테이너 안에 텍스트')),
-            const SizedBox(
-              // SizedBox 위젯을 사용하여 사이즈를 지정
-              // 특정 공간이 필요할 때 주로 사용
-              width: 300,
-              height: 100,
-              child: Text(
-                "SizedBox 위젯을 사용하여 사이즈를 지정",
-                style: TextStyle(
-                    color: Colors.green,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/twitter.png",
-                  width: 100,
-                  height: 100,
-                  color: Colors.amber,
-                ),
-                const Icon(
-                  Icons.search,
-                  size: 100,
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        // 리스트 목록 UI 생성, itemCount에 지정된 숫자만큼 반복한다.
+        itemCount: listHello.length,
+        itemBuilder: (BuildContext context, int index) {
+          var count = index + 1;
+          return ListTile(
+            title: Text('${listHello[index]}'),
+            subtitle: Text('서브 제목 $count'),
+          );
+        },
       ),
     );
   }
