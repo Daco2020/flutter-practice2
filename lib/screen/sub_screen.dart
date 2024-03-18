@@ -16,7 +16,13 @@ class SubScreen extends StatelessWidget {
         children: [
           Center(
             child: Text('서브 화면입니다. $msg'),
-          )
+          ),
+          TextButton(
+              onPressed: () {
+                // Navigator.pop 은 현재 화면을 종료하고 이전 화면으로 이동
+                Navigator.pop(context);
+              },
+              child: const Text('돌아가기'))
         ],
       ),
     );
