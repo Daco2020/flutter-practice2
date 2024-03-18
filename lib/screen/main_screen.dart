@@ -17,40 +17,19 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('메인 화면')),
-        body: Column(
-          children: [
-            TextField(
-              controller: idController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: '아이디를 입력하세요', // placeholder 역할
-              ),
-            ),
-            ElevatedButton(
+      appBar: AppBar(title: const Text('메인 화면')),
+      body: Column(
+        children: [
+          TextButton(
               onPressed: () {
-                // print(idController.text.toString());
-                setState(() {
-                  // setState로 widget의 상태를 변경.
-                  name = idController.text.toString();
-                });
-                counter.value++;
+                // Navigator.pushNamed 는 생성하면서 이동
+                Navigator.pushNamed(context, '/sub', arguments: "데이터 전달");
+                // Navigator.pushReplacementNamed 는 내 화면을 교체하여 이동
+                // Navigator.pushReplacementNamed(context, '/sub');
               },
-              child: const Text('아이디 가져오기'),
-            ),
-            ValueListenableBuilder<int>(
-                valueListenable: counter,
-                builder: (context, value, child) {
-                  return Text(
-                    '현재 카운터 값은 $value 입니다.',
-                    style: const TextStyle(fontSize: 30),
-                  );
-                }),
-            Text(
-              name,
-              style: const TextStyle(fontSize: 30),
-            )
-          ],
-        ));
+              child: const Text('서브 화면으로 이동')),
+        ],
+      ),
+    );
   }
 }
