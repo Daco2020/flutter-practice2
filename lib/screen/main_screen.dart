@@ -12,6 +12,7 @@ class _MainScreenState extends State<MainScreen> {
   // 유저가 인풋창에 입력한 값을 가져오기 위한 컨트롤러
 
   String name = "안녕하세요!";
+  ValueNotifier<int> counter = ValueNotifier<int>(0);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,18 @@ class _MainScreenState extends State<MainScreen> {
                   // setState로 widget의 상태를 변경.
                   name = idController.text.toString();
                 });
+                counter.value++;
               },
               child: const Text('아이디 가져오기'),
             ),
+            ValueListenableBuilder<int>(
+                valueListenable: counter,
+                builder: (context, value, child) {
+                  return Text(
+                    '현재 카운터 값은 $value 입니다.',
+                    style: const TextStyle(fontSize: 30),
+                  );
+                }),
             Text(
               name,
               style: const TextStyle(fontSize: 30),
