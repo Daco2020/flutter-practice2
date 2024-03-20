@@ -1,6 +1,7 @@
 import 'package:first_project/screen/main_screen.dart';
 import 'package:first_project/screen/splash_screen.dart';
 import 'package:first_project/screen/sub_screen.dart';
+import 'package:first_project/screen/tab_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/main': (context) => const MainScreen(),
+        '/tab': (context) => const TabScreen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/sub') {
