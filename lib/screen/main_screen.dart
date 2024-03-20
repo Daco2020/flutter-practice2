@@ -17,7 +17,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('메인 화면')),
+      appBar: AppBar(
+        title: const Text('메인 화면'),
+      ),
       body: Column(
         children: [
           TextButton(
@@ -29,6 +31,33 @@ class _MainScreenState extends State<MainScreen> {
               },
               child: const Text('서브 화면으로 이동')),
         ],
+      ),
+      drawer: Drawer(
+        // Drawer 는 왼쪽에서 오른쪽으로 슬라이드 되는 메뉴 위젯
+        width: 200,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+              ),
+              child: Text('Drawer 헤더'),
+            ),
+            ListTile(
+              title: const Text('홈 화면'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('메인 화면'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
