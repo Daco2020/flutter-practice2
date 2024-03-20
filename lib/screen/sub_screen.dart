@@ -10,7 +10,24 @@ class SubScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.deepPurple,
         title: const Text('서브 화면'),
+        leading: IconButton(
+          // leading 은 앱바의 왼쪽에 위치하는 위젯
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.adb_rounded),
+        ),
+        actions: [
+          // actions 는 앱바의 오른쪽에 위치하는 위젯
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/main');
+              },
+              icon: const Icon(Icons.home))
+        ],
       ),
       body: Column(
         children: [
